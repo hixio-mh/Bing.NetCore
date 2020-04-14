@@ -54,10 +54,7 @@ namespace Bing.Exceptions
         /// <param name="message">错误消息</param>
         /// <param name="code">错误码</param>
         /// <param name="exception">异常</param>
-        public Warning(string message, string code, Exception exception) : base(message ?? "", exception)
-        {
-            Code = code;
-        }
+        public Warning(string message, string code, Exception exception) : base(message ?? "", exception) => Code = code;
 
         #endregion
 

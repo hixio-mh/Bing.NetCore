@@ -51,10 +51,7 @@ namespace Bing.Exceptions
         /// <param name="message">错误消息</param>
         /// <param name="exception">异常</param>
         /// <param name="code">错误码</param>
-        public ConcurrencyException(string message, Exception exception, string code) : base(message, code, exception)
-        {
-            _message = message;
-        }
+        public ConcurrencyException(string message, Exception exception, string code) : base(message, code, exception) => _message = message;
 
         /// <summary>
         /// 错误消息

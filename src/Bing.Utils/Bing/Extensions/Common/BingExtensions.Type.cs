@@ -283,5 +283,20 @@ namespace Bing.Extensions
         }
 
         #endregion
+
+        #region GetGenericArgumentFirstOrDefault(获取泛型参数)
+
+        /// <summary>
+        /// 获取泛型参数
+        /// </summary>
+        /// <param name="type">类型</param>
+        public static Type GetGenericArgumentFirstOrDefault(this Type type)
+        {
+            if (type.GetGenericArguments().Length > 0 && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                return type.GetGenericArguments().FirstOrDefault();
+            return type;
+        }
+
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -662,6 +663,141 @@ namespace Bing.Helpers
             if (genericArgumentsTypes == null || genericArgumentsTypes.Length == 0)
                 throw new ArgumentException("泛型类型参数不能为空");
             return genericArgumentsTypes[0];
+        }
+
+        #endregion
+
+        #region GetImplementedGenericTypes(获取实现泛型类型)
+
+        /// <summary>
+        /// 获取实现泛型类型
+        /// </summary>
+        /// <param name="givenType">给定类型</param>
+        /// <param name="genericType">泛型类型</param>
+        public static List<Type> GetImplementedGenericTypes(Type givenType, Type genericType)
+        {
+            var result = new List<Type>();
+            AddImplementedGenericTypes(result, givenType, genericType);
+            return result;
+        }
+
+        /// <summary>
+        /// 添加实现泛型类型
+        /// </summary>
+        /// <param name="result">结果</param>
+        /// <param name="givenType">给定类型</param>
+        /// <param name="genericType">泛型类型</param>
+        private static void AddImplementedGenericTypes(List<Type> result, Type givenType, Type genericType)
+        {
+            var givenTypeInfo = givenType.GetTypeInfo();
+            if (givenTypeInfo.IsGenericType && givenType.GetGenericTypeDefinition() == genericType)
+                result.AddIfNotContains(givenType);
+            foreach (var interfaceType in givenTypeInfo.GetInterfaces())
+            {
+                if (interfaceType.GetTypeInfo().IsGenericType && interfaceType.GetGenericTypeDefinition() == genericType)
+                    result.AddIfNotContains(interfaceType);
+            }
+            if (givenTypeInfo.BaseType == null)
+                return;
+            AddImplementedGenericTypes(result, givenTypeInfo.BaseType, genericType);
+        }
+
+        #endregion
+
+        #region IsFunc(是否Func)
+
+        /// <summary>
+        /// 是否Func
+        /// </summary>
+        /// <param name="obj">对象</param>
+        public static bool IsFunc(object obj)
+        {
+            if (obj == null)
+                return false;
+            var type = obj.GetType();
+            if (!type.GetTypeInfo().IsGenericType)
+                return false;
+            return type.GetGenericTypeDefinition() == typeof(Func<>);
+        }
+
+        /// <summary>
+        /// 是否Func
+        /// </summary>
+        /// <typeparam name="TReturn">返回类型</typeparam>
+        /// <param name="obj">对象</param>
+        public static bool IsFunc<TReturn>(object obj) => obj != null && obj.GetType() == typeof(Func<TReturn>);
+
+        #endregion
+
+        #region IsPrimitiveExtended(是否元数据扩展)
+
+        /// <summary>
+        /// 是否元数据扩展
+        /// </summary>
+        /// <param name="type">类型</param>
+        /// <param name="includeNullables">是否包含可空</param>
+        /// <param name="includeEnums">是否包含枚举</param>
+        public static bool IsPrimitiveExtended(Type type, bool includeNullables = true, bool includeEnums = false)
+        {
+            if (IsPrimitiveExtendedInternal(type, includeEnums))
+                return true;
+            if (includeNullables && type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                return IsPrimitiveExtendedInternal(type.GenericTypeArguments[0], includeEnums);
+            return false;
+        }
+
+        /// <summary>
+        /// 是否内部元数据扩展
+        /// </summary>
+        /// <param name="type">类型</param>
+        /// <param name="includeEnums">是否包含枚举</param>
+        private static bool IsPrimitiveExtendedInternal(Type type, bool includeEnums)
+        {
+            if (type.IsPrimitive)
+                return true;
+            if (includeEnums && type.IsEnum)
+                return true;
+            return type == typeof(string) ||
+                   type == typeof(decimal) ||
+                   type == typeof(DateTime) ||
+                   type == typeof(DateTimeOffset) ||
+                   type == typeof(TimeSpan) ||
+                   type == typeof(Guid);
+        }
+
+        #endregion
+
+        #region IsEnumerable(是否迭代集合)
+
+        /// <summary>
+        /// 是否迭代集合
+        /// </summary>
+        /// <param name="type">类型</param>
+        /// <param name="itemType">项类型</param>
+        /// <param name="includePrimitives">是否包含元数据</param>
+        public static bool IsEnumerable(Type type, out Type itemType, bool includePrimitives = true)
+        {
+            if (!includePrimitives && IsPrimitiveExtended(type))
+            {
+                itemType = null;
+                return false;
+            }
+
+            var enumerableTypes = GetImplementedGenericTypes(type, typeof(IEnumerable<>));
+            if (enumerableTypes.Count == 1)
+            {
+                itemType = enumerableTypes[0].GenericTypeArguments[0];
+                return true;
+            }
+
+            if (typeof(IEnumerable).IsAssignableFrom(type))
+            {
+                itemType = typeof(object);
+                return true;
+            }
+
+            itemType = null;
+            return false;
         }
 
         #endregion

@@ -73,6 +73,7 @@
 
   <ItemGroup>
     <Folder Include="Bing\Events\Local\" />
+    <Folder Include="Bing\ObjectExtending\" />
   </ItemGroup>
 
 </Project>

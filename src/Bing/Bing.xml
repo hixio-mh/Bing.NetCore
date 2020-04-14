@@ -14023,7 +14023,6 @@
             获取异常提示
             </summary>
             <param name="exception">异常</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Exceptions.Warning">
             <summary>
