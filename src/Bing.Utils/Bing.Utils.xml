@@ -3039,6 +3039,12 @@
             </summary>
             <param name="type">类型</param>
         </member>
+        <member name="M:Bing.Extensions.BingExtensions.GetGenericArgumentFirstOrDefault(System.Type)">
+            <summary>
+            获取泛型参数
+            </summary>
+            <param name="type">类型</param>
+        </member>
         <member name="M:Bing.Extensions.BingExtensions.CheckNull(System.Object,System.String)">
             <summary>
             检查对象是否为null，为null则抛出<see cref="T:System.ArgumentNullException"/>异常
@@ -6775,6 +6781,57 @@
             获取元素类型。如果是集合，返回集合的元素类型
             </summary>
             <param name="type">类型</param>
+        </member>
+        <member name="M:Bing.Helpers.Reflection.GetImplementedGenericTypes(System.Type,System.Type)">
+            <summary>
+            获取实现泛型类型
+            </summary>
+            <param name="givenType">给定类型</param>
+            <param name="genericType">泛型类型</param>
+        </member>
+        <member name="M:Bing.Helpers.Reflection.AddImplementedGenericTypes(System.Collections.Generic.List{System.Type},System.Type,System.Type)">
+            <summary>
+            添加实现泛型类型
+            </summary>
+            <param name="result">结果</param>
+            <param name="givenType">给定类型</param>
+            <param name="genericType">泛型类型</param>
+        </member>
+        <member name="M:Bing.Helpers.Reflection.IsFunc(System.Object)">
+            <summary>
+            是否Func
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Helpers.Reflection.IsFunc``1(System.Object)">
+            <summary>
+            是否Func
+            </summary>
+            <typeparam name="TReturn">返回类型</typeparam>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Helpers.Reflection.IsPrimitiveExtended(System.Type,System.Boolean,System.Boolean)">
+            <summary>
+            是否元数据扩展
+            </summary>
+            <param name="type">类型</param>
+            <param name="includeNullables">是否包含可空</param>
+            <param name="includeEnums">是否包含枚举</param>
+        </member>
+        <member name="M:Bing.Helpers.Reflection.IsPrimitiveExtendedInternal(System.Type,System.Boolean)">
+            <summary>
+            是否内部元数据扩展
+            </summary>
+            <param name="type">类型</param>
+            <param name="includeEnums">是否包含枚举</param>
+        </member>
+        <member name="M:Bing.Helpers.Reflection.IsEnumerable(System.Type,System.Type@,System.Boolean)">
+            <summary>
+            是否迭代集合
+            </summary>
+            <param name="type">类型</param>
+            <param name="itemType">项类型</param>
+            <param name="includePrimitives">是否包含元数据</param>
         </member>
         <member name="T:Bing.Helpers.Regexs">
             <summary>

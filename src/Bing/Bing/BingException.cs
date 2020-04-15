@@ -9,7 +9,7 @@ namespace Bing
     /// Bing框架异常
     /// </summary>
     [Serializable]
-    public abstract class BingException : Exception
+    public class BingException : Exception
     {
         /// <summary>
         /// 空标识
@@ -34,14 +34,14 @@ namespace Bing
         /// <summary>
         /// 初始化一个<see cref="BingException"/>类型的实例
         /// </summary>
-        protected BingException() : this(DefaultErrorCode, DefaultErrorMessage, EmptyFlag) { }
+        public BingException() : this(DefaultErrorCode, DefaultErrorMessage, EmptyFlag) { }
 
         /// <summary>
         /// 初始化一个<see cref="BingException"/>类型的实例
         /// </summary>
         /// <param name="errorMessage">错误消息</param>
         /// <param name="innerException">内部异常</param>
-        protected BingException(string errorMessage, Exception innerException = null) : this(errorMessage, EmptyFlag, innerException) { }
+        public BingException(string errorMessage, Exception innerException = null) : this(errorMessage, EmptyFlag, innerException) { }
 
         /// <summary>
         /// 初始化一个<see cref="BingException"/>类型的实例
@@ -49,7 +49,7 @@ namespace Bing
         /// <param name="errorMessage">错误消息</param>
         /// <param name="flag">错误标识</param>
         /// <param name="innerException">内部异常</param>
-        protected BingException(string errorMessage, string flag, Exception innerException = null) : this(DefaultExtendErrorCode, errorMessage, flag, innerException) { }
+        public BingException(string errorMessage, string flag, Exception innerException = null) : this(DefaultExtendErrorCode, errorMessage, flag, innerException) { }
 
         /// <summary>
         /// 初始化一个<see cref="BingException"/>类型的实例
@@ -57,14 +57,14 @@ namespace Bing
         /// <param name="errorCode">错误码</param>
         /// <param name="errorMessage">错误消息</param>
         /// <param name="innerException">内部异常</param>
-        protected BingException(long errorCode, string errorMessage, Exception innerException = null) : this(errorCode, errorMessage, EmptyFlag, innerException) { }
+        public BingException(long errorCode, string errorMessage, Exception innerException = null) : this(errorCode, errorMessage, EmptyFlag, innerException) { }
 
         /// <summary>
         /// 初始化一个<see cref="BingException"/>类型的实例
         /// </summary>
         /// <param name="info">序列化信息</param>
         /// <param name="context">流上下文</param>
-        protected BingException(SerializationInfo info, StreamingContext context) : base(info, context)
+        public BingException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
             ExtraData = new Dictionary<string, object>();
             Code = DefaultExtendErrorCode;
@@ -78,7 +78,7 @@ namespace Bing
         /// <param name="errorMessage">错误消息</param>
         /// <param name="flag">错误标识</param>
         /// <param name="innerException">内部异常</param>
-        protected BingException(long errorCode, string errorMessage, string flag, Exception innerException = null) : base(errorMessage, innerException)
+        public BingException(long errorCode, string errorMessage, string flag, Exception innerException = null) : base(errorMessage, innerException)
         {
             if (string.IsNullOrWhiteSpace(flag))
                 flag = EmptyFlag;
@@ -101,12 +101,12 @@ namespace Bing
         /// <summary>
         /// 错误码
         /// </summary>
-        public long Code { get; protected set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// 错误标识
         /// </summary>
-        public string Flag { get; protected set; }
+        public string Flag { get; set; }
 
         /// <summary>
         /// 额外数据

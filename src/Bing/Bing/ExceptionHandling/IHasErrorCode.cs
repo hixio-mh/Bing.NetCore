@@ -8,6 +8,6 @@
         /// <summary>
         /// 错误码
         /// </summary>
-        string Code { get; }
+        long Code { get; }
     }
 }
