@@ -776,5 +776,47 @@
             <param name="data">被反序列化对象</param>
             <param name="type">被序列化对象类型</param>
         </member>
+        <member name="M:Bing.Serialization.NewtonsoftJsonSerializer.SerializeToStream``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="o">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.NewtonsoftJsonSerializer.DeserializeFromStream``1(System.IO.Stream)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.NewtonsoftJsonSerializer.DeserializeFromStream(System.IO.Stream,System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="stream">流</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Bing.Serialization.NewtonsoftJsonSerializer.SerializeToStreamAsync``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="o">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.NewtonsoftJsonSerializer.DeserializeFromStreamAsync``1(System.IO.Stream)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.NewtonsoftJsonSerializer.DeserializeFromStreamAsync(System.IO.Stream,System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="stream">流</param>
+            <param name="type">对象类型</param>
+        </member>
     </members>
 </doc>

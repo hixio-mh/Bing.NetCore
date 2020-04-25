@@ -19,7 +19,6 @@
             <summary>
             创建约束集合
             </summary>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Conventions.DecimalPrecisionAttributeConvention">
             <summary>
@@ -729,14 +728,12 @@
             修改实体
             </summary>
             <param name="entity">实体</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.StoreBase`2.UpdateAsync(System.Collections.Generic.IEnumerable{`0})">
             <summary>
             修改实体集合
             </summary>
             <param name="entities">实体集合</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.StoreBase`2.Remove(System.Object)">
             <summary>
@@ -825,7 +822,6 @@
             生成排序号
             </summary>
             <param name="parentId">父标识</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Core.TreeCompactRepositoryBase`4">
             <summary>
@@ -852,14 +848,12 @@
             生成排序号
             </summary>
             <param name="parentId">父标识</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.TreeCompactRepositoryBase`4.GetAllChildrenAsync(`0)">
             <summary>
             获取全部下级实体
             </summary>
             <param name="parent">父实体</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.TreeCompactRepositoryBase`4.FindByIdNoTrackingAsync(`2,System.Threading.CancellationToken)">
             <summary>
@@ -867,7 +861,6 @@
             </summary>
             <param name="id">标识</param>
             <param name="cancellationToken">取消令牌</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Core.TreeRepositoryBase`1">
             <summary>
@@ -886,7 +879,6 @@
             生成排序号
             </summary>
             <param name="parentId">父标识</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Core.TreeRepositoryBase`3">
             <summary>
@@ -907,14 +899,12 @@
             生成排序号
             </summary>
             <param name="parentId">父标识</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.TreeRepositoryBase`3.GetAllChildrenAsync(`0)">
             <summary>
             获取全部下级实体
             </summary>
             <param name="parent">父实体</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Core.UnitOfWorkBase">
             <summary>
@@ -979,26 +969,23 @@
             <summary>
             启用日志
             </summary>
-            <param name="builder"></param>
+            <param name="builder">配置生成器</param>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.UnitOfWorkBase.GetLog">
             <summary>
             获取日志操作
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.UnitOfWorkBase.IsEnabled(Bing.Logs.ILog)">
             <summary>
             是否启用EF日志
             </summary>
             <param name="log">日志操作</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.UnitOfWorkBase.GetConfig">
             <summary>
             获取配置
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.UnitOfWorkBase.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
@@ -1036,13 +1023,11 @@
             <summary>
             提交，返回影响的行数
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.UnitOfWorkBase.CommitAsync">
             <summary>
             异步提交，返回影响的行数
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Core.UnitOfWorkBase.SaveChanges">
             <summary>
@@ -1193,21 +1178,18 @@
             设置简单下划线表名约定
             </summary>
             <param name="modelBuilder">实体生成器</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Extensions.ModelBuilderExtensions.SetOneToManyCascadeDeleteConvention(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             设置关闭所有主外键关系的级联删除
             </summary>
             <param name="modelBuilder">实体生成器</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Extensions.ModelBuilderExtensions.HasGlobalDeleteQueryFilter(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             全局逻辑删除查询过滤器
             </summary>
             <param name="modelBuilder">实体生成器</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Extensions.PropertyBuilderExtensions">
             <summary>
@@ -1222,7 +1204,6 @@
             <param name="propertyBuilder">属性生成器</param>
             <param name="precision">精度</param>
             <param name="scale">保留小数位</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Extensions.PropertyBuilderExtensions.HasMaxLength``1(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{``0},System.Nullable{System.Boolean})">
             <summary>
@@ -1231,7 +1212,6 @@
             <typeparam name="TProperty">属性类型</typeparam>
             <param name="propertyBuilder">属性生成器</param>
             <param name="hasMaxLength">是否最大长度</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Extensions.QueryableExtensions">
             <summary>
@@ -1245,7 +1225,6 @@
             <typeparam name="TEntity">实体类型</typeparam>
             <param name="query">数据源</param>
             <param name="pager">分页对象</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Extensions.QueryableExtensions.ToPagerListAsync``1(System.Linq.IQueryable{``0},Bing.Domains.Repositories.IPager)">
             <summary>
@@ -1254,7 +1233,6 @@
             <typeparam name="TEntity">实体类型</typeparam>
             <param name="query">数据源</param>
             <param name="pager">分页对象</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Extensions.UnitOfWorkExtensions">
             <summary>
@@ -1292,19 +1270,16 @@
             <summary>
             获取配置
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Logs.EfLog.GetLog">
             <summary>
             获取日志操作
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Logs.EfLog.GetUnitOfWork">
             <summary>
             获取工作单元
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Logs.EfLog.IsEnabled(Microsoft.Extensions.Logging.EventId,Bing.Datas.Configs.DataConfig)">
             <summary>
@@ -1312,7 +1287,6 @@
             </summary>
             <param name="eventId">事件ID</param>
             <param name="config">数据配置</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Logs.EfLog.AddContent``1(``0,Bing.Datas.Configs.DataConfig,Bing.Logs.ILog)">
             <summary>
@@ -1332,7 +1306,6 @@
             </summary>
             <param name="dictionary">参数字典</param>
             <param name="key">参数名</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Logs.EfLog.AddElapsed(System.String,Bing.Logs.ILog)">
             <summary>
@@ -1360,7 +1333,6 @@
             是否启用
             </summary>
             <param name="logLevel">日志级别</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Logs.EfLog.BeginScope``1(``0)">
             <summary>
@@ -1382,7 +1354,6 @@
             初始化EF日志提供器
             </summary>
             <param name="categoryName">日志分类</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Logs.NullLogger">
             <summary>
@@ -1404,7 +1375,6 @@
             是否启用
             </summary>
             <param name="logLevel">日志级别</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Logs.NullLogger.BeginScope``1(``0)">
             <summary>

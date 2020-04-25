@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bing.Serialization.Binary</name>
+    </assembly>
+    <members>
+        <member name="T:Bing.Serialization.BinaryObjectSerializer">
+            <summary>
+            二进制对象序列化器
+            </summary>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.SerializeToStream``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="o">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.DeserializeFromStream``1(System.IO.Stream)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.DeserializeFromStream(System.IO.Stream,System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="stream">流</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.SerializeToStreamAsync``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="o">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.DeserializeFromStreamAsync``1(System.IO.Stream)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.DeserializeFromStreamAsync(System.IO.Stream,System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="stream">流</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.Serialize``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">序列化对象类型</typeparam>
+            <param name="o">被序列化对象</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.Deserialize``1(System.Byte[])">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">被序列化对象类型</typeparam>
+            <param name="data">被反序列化对象</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="data">被反序列化对象</param>
+            <param name="type">被序列化对象类型</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.SerializeAsync``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">序列化对象类型</typeparam>
+            <param name="o">被序列化对象</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.DeserializeAsync``1(System.Byte[])">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">被序列化对象类型</typeparam>
+            <param name="data">被反序列化对象</param>
+        </member>
+        <member name="M:Bing.Serialization.BinaryObjectSerializer.DeserializeAsync(System.Byte[],System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="data">被反序列化对象</param>
+            <param name="type">被序列化对象类型</param>
+        </member>
+        <member name="T:Bing.Serialization.Binary.BinaryHelper">
+            <summary>
+            二进制操作辅助类
+            </summary>
+            <summary>
+            二进制操作辅助类
+            </summary>
+            <summary>
+            二进制操作辅助类
+            </summary>
+            <summary>
+            二进制操作辅助类
+            </summary>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.SerializeAsync(System.Object)">
+            <summary>
+            序列化
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.DeserializeAsync``1(System.Byte[])">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="bytes">数据</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.DeserializeAsync(System.Byte[])">
+            <summary>
+            反序列化
+            </summary>
+            <param name="bytes">数据</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.PackAsync(System.Object)">
+            <summary>
+            装箱
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.PackAsync(System.Object,System.IO.Stream)">
+            <summary>
+            装箱
+            </summary>
+            <param name="obj">对象</param>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.UnpackAsync``1(System.IO.Stream)">
+            <summary>
+            拆箱
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.UnpackAsync(System.IO.Stream)">
+            <summary>
+            拆箱
+            </summary>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.Serialize(System.Object)">
+            <summary>
+            序列化
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.Deserialize``1(System.Byte[])">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="bytes">数据</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.Deserialize(System.Byte[])">
+            <summary>
+            反序列化
+            </summary>
+            <param name="bytes">数据</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.Pack(System.Object)">
+            <summary>
+            装箱
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.Pack(System.Object,System.IO.Stream)">
+            <summary>
+            装箱
+            </summary>
+            <param name="obj">对象</param>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.Unpack``1(System.IO.Stream)">
+            <summary>
+            拆箱
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryHelper.Unpack(System.IO.Stream)">
+            <summary>
+            拆箱
+            </summary>
+            <param name="stream">流</param>
+        </member>
+        <member name="T:Bing.Serialization.Binary.BinaryManager">
+            <summary>
+            二进制管理器
+            </summary>
+        </member>
+        <member name="F:Bing.Serialization.Binary.BinaryManager._binaryFormatter">
+            <summary>
+            二进制格式化器
+            </summary>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryManager.GetBinaryFormatter">
+            <summary>
+            获取二进制格式化器
+            </summary>
+        </member>
+        <member name="T:Bing.Serialization.Binary.BinaryExtensions">
+            <summary>
+            二进制 扩展
+            </summary>
+            <summary>
+            二进制 扩展
+            </summary>
+            <summary>
+            二进制 扩展
+            </summary>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.FromBytes``1(System.Byte[])">
+            <summary>
+            从字节数组反序列化为对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="bytes">字节数组</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.FromBytes(System.Byte[],System.Type)">
+            <summary>
+            从字节数组反序列化为对象
+            </summary>
+            <param name="bytes">字节数组</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.FromBytesAsync``1(System.Byte[])">
+            <summary>
+            从字节数组反序列化为对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="bytes">字节数组</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.FromBytesAsync(System.Byte[],System.Type)">
+            <summary>
+            从字节数组反序列化为对象
+            </summary>
+            <param name="bytes">字节数组</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.ToBytes(System.Object)">
+            <summary>
+            转换为字节数组
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.ToBytesAsync(System.Object)">
+            <summary>
+            转换为字节数组
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.Pack(System.Object)">
+            <summary>
+            装箱
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.PackTo(System.Object,System.IO.Stream)">
+            <summary>
+            装箱
+            </summary>
+            <param name="obj">对象</param>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.PackAsync(System.Object)">
+            <summary>
+            装箱
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.PackToAsync(System.Object,System.IO.Stream)">
+            <summary>
+            装箱
+            </summary>
+            <param name="obj">对象</param>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.PackBy``1(System.IO.Stream,``0)">
+            <summary>
+            装箱
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.Unpack``1(System.IO.Stream)">
+            <summary>
+            拆箱
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.Unpack(System.IO.Stream,System.Type)">
+            <summary>
+            拆箱
+            </summary>
+            <param name="stream">流</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.PackByAsync``1(System.IO.Stream,``0)">
+            <summary>
+            装箱
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.UnpackAsync``1(System.IO.Stream)">
+            <summary>
+            拆箱
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.BinaryExtensions.UnpackAsync(System.IO.Stream,System.Type)">
+            <summary>
+            拆箱
+            </summary>
+            <param name="stream">流</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="T:Bing.Serialization.Binary.InternalExtensions">
+            <summary>
+            内部扩展
+            </summary>
+        </member>
+        <member name="M:Bing.Serialization.Binary.InternalExtensions.CastToBytes(System.IO.Stream)">
+            <summary>
+            转换为字节数组
+            </summary>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.Binary.InternalExtensions.CastToBytesAsync(System.IO.Stream)">
+            <summary>
+            转换为字节数组
+            </summary>
+            <param name="stream">流</param>
+        </member>
+    </members>
+</doc>

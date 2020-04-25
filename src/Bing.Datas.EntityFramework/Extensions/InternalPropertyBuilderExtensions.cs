@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Diagnostics;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Bing.Datas.EntityFramework.Extensions
@@ -35,7 +35,7 @@ namespace Bing.Datas.EntityFramework.Extensions
         {
             if (hasMaxLength.HasValue && hasMaxLength.Value == true)
             {
-                Console.WriteLine($"HasMaxLength(true) remove MaxLength Annotaion.entity:{propertyBuilder.Metadata.DeclaringType.Name};property:{propertyBuilder.Metadata.Name};{configurationSource}");
+                Debug.WriteLine($"HasMaxLength(true) remove MaxLength Annotaion.entity:{propertyBuilder.Metadata.DeclaringType.Name};property:{propertyBuilder.Metadata.Name};{configurationSource}");
                 propertyBuilder.HasAnnotation(CoreAnnotationNames.MaxLengthAnnotation, null, configurationSource);
             }
 

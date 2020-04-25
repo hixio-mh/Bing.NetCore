@@ -37,12 +37,8 @@ namespace Bing.Datas.EntityFramework.Extensions
                 services.Configure(dataConfigAction);
                 dataConfigAction.Invoke(dataConfig);
             }
-
-            if (configuration != null)
-            {
+            if (configuration != null) 
                 services.Configure<DataConfig>(configuration);
-            }
-
             services.TryAddScoped<TService>(t => t.GetService<TImplementation>());
             services.TryAddScoped<IUnitOfWork>(t => t.GetService<TImplementation>());
             return services;

@@ -21,14 +21,9 @@ namespace Bing.Datas.EntityFramework.Conventions
             if (propertyBuilder.Metadata.ClrType == typeof(decimal))
             {
                 if (attribute.Precision < 1 || attribute.Precision > 38)
-                {
                     throw new InvalidOperationException("Precision must be between 1 and 38.");
-                }
                 if (attribute.Scale > attribute.Precision)
-                {
                     throw new InvalidOperationException("Scale must be between 0 and the Precision value.");
-                }
-
                 propertyBuilder.HasPrecision(ConfigurationSource.DataAnnotation, attribute.Precision, attribute.Scale);
             }
 

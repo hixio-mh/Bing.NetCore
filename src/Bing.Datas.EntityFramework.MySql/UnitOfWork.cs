@@ -26,7 +26,6 @@ namespace Bing.Datas.EntityFramework.MySql
         /// 获取映射实例列表
         /// </summary>
         /// <param name="assembly">程序集</param>
-        /// <returns></returns>
         protected override IEnumerable<Core.IMap> GetMapInstances(Assembly assembly)
         {
             return Reflection.GetInstancesByInterface<IMap>(assembly);

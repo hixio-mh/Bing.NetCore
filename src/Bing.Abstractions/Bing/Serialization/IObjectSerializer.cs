@@ -7,7 +7,7 @@ namespace Bing.Serialization
     /// 对象序列化器
     /// </summary>
     /// <typeparam name="TSerializedType">目标序列化类型</typeparam>
-    public interface IObjectSerializer<TSerializedType>
+    public interface IObjectSerializer<TSerializedType> : ISerializer
     {
         /// <summary>
         /// 序列化
@@ -55,5 +55,5 @@ namespace Bing.Serialization
     /// <summary>
     /// 对象序列化器
     /// </summary>
-    public interface IObjectSerializer: IObjectSerializer<string> { }
+    public interface IObjectSerializer : IObjectSerializer<string> { }
 }

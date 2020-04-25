@@ -197,6 +197,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.MongoDB", "src\Bing.Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Serialization.Utf8Json", "src\Bing.Serialization.Utf8Json\Bing.Serialization.Utf8Json.csproj", "{6C46A03D-CBDE-4D0E-87CB-247EAF6318C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Serialization.Binary", "src\Bing.Serialization.Binary\Bing.Serialization.Binary.csproj", "{DCE1210F-00E4-4122-8AF0-79F759F98064}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -415,6 +417,10 @@ Global
 		{6C46A03D-CBDE-4D0E-87CB-247EAF6318C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C46A03D-CBDE-4D0E-87CB-247EAF6318C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C46A03D-CBDE-4D0E-87CB-247EAF6318C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE1210F-00E4-4122-8AF0-79F759F98064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE1210F-00E4-4122-8AF0-79F759F98064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE1210F-00E4-4122-8AF0-79F759F98064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE1210F-00E4-4122-8AF0-79F759F98064}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -501,6 +507,7 @@ Global
 		{6B0E2DC7-5E49-469E-9923-8E27FEF9944F} = {DFB1E617-DFC7-404F-9E7D-83DCC6C8409B}
 		{2C98DFB4-F7BC-470F-919B-A3414C6BE668} = {919230E8-CEFA-48BC-958A-42601DB44C4A}
 		{6C46A03D-CBDE-4D0E-87CB-247EAF6318C1} = {2C46583B-F721-4969-8F07-53BB3F239CC7}
+		{DCE1210F-00E4-4122-8AF0-79F759F98064} = {2C46583B-F721-4969-8F07-53BB3F239CC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82408448-62DC-44A6-B7C1-6FCEBCC12C93}

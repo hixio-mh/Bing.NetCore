@@ -126,7 +126,6 @@ namespace Bing.Datas.EntityFramework.Core
         /// 修改实体
         /// </summary>
         /// <param name="entity">实体</param>
-        /// <returns></returns>
         public virtual Task UpdateAsync(TEntity entity)
         {
             Update(entity);
@@ -137,7 +136,6 @@ namespace Bing.Datas.EntityFramework.Core
         /// 修改实体集合
         /// </summary>
         /// <param name="entities">实体集合</param>
-        /// <returns></returns>
         public virtual async Task UpdateAsync(IEnumerable<TEntity> entities)
         {
             if (entities == null)
@@ -169,7 +167,6 @@ namespace Bing.Datas.EntityFramework.Core
                 model.IsDeleted = true;
                 return;
             }
-
             Set.Remove(entity);
         }
 

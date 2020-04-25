@@ -36,7 +36,6 @@
             <param name="services">服务集合</param>
             <param name="connection">连接字符串</param>
             <param name="level">日志级别</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.MySql.Extensions.AddMySqlUnitOfWork``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Bing.Datas.Configs.DataConfig})">
             <summary>
@@ -47,7 +46,6 @@
             <param name="services">服务集合</param>
             <param name="connection">连接字符串</param>
             <param name="dataConfigAction">数据配置操作</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.MySql.Extensions.AddMySqlUnitOfWork``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -58,7 +56,6 @@
             <param name="services">服务集合</param>
             <param name="connection">连接字符串</param>
             <param name="configuration">配置</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.MySql.IMap">
             <summary>
@@ -82,7 +79,6 @@
             获取映射实例列表
             </summary>
             <param name="assembly">程序集</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.MySql.UnitOfWork.InterceptAddedOperation(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry)">
             <summary>

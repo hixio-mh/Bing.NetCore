@@ -88,6 +88,53 @@
             Google ProtoBuf 序列化器
             </summary>
         </member>
+        <member name="T:Bing.Serialization.ISerializer">
+            <summary>
+            对象序列化器
+            </summary>
+        </member>
+        <member name="M:Bing.Serialization.ISerializer.SerializeToStream``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="o">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.ISerializer.DeserializeFromStream``1(System.IO.Stream)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.ISerializer.DeserializeFromStream(System.IO.Stream,System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="stream">流</param>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Bing.Serialization.ISerializer.SerializeToStreamAsync``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="o">对象</param>
+        </member>
+        <member name="M:Bing.Serialization.ISerializer.DeserializeFromStreamAsync``1(System.IO.Stream)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:Bing.Serialization.ISerializer.DeserializeFromStreamAsync(System.IO.Stream,System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="stream">流</param>
+            <param name="type">对象类型</param>
+        </member>
         <member name="T:Bing.Serialization.ITomlSerializer">
             <summary>
             Toml 序列化器

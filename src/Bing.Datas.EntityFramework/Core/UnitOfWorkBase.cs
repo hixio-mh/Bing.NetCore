@@ -128,7 +128,7 @@ namespace Bing.Datas.EntityFramework.Core
         /// <summary>
         /// 启用日志
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="builder">配置生成器</param>
         protected void EnableLog(DbContextOptionsBuilder builder)
         {
             var log = GetLog();
@@ -142,7 +142,6 @@ namespace Bing.Datas.EntityFramework.Core
         /// <summary>
         /// 获取日志操作
         /// </summary>
-        /// <returns></returns>
         protected virtual ILog GetLog()
         {
             try
@@ -159,7 +158,6 @@ namespace Bing.Datas.EntityFramework.Core
         /// 是否启用EF日志
         /// </summary>
         /// <param name="log">日志操作</param>
-        /// <returns></returns>
         private bool IsEnabled(ILog log)
         {
             var config = GetConfig();
@@ -173,7 +171,6 @@ namespace Bing.Datas.EntityFramework.Core
         /// <summary>
         /// 获取配置
         /// </summary>
-        /// <returns></returns>
         private DataConfig GetConfig()
         {
             try
@@ -183,7 +180,7 @@ namespace Bing.Datas.EntityFramework.Core
             }
             catch
             {
-                return new DataConfig() { LogLevel = DataLogLevel.Sql };
+                return new DataConfig { LogLevel = DataLogLevel.Sql };
             }
         }
 
@@ -240,7 +237,6 @@ namespace Bing.Datas.EntityFramework.Core
         /// <summary>
         /// 提交，返回影响的行数
         /// </summary>
-        /// <returns></returns>
         public int Commit()
         {
             try
@@ -260,7 +256,6 @@ namespace Bing.Datas.EntityFramework.Core
         /// <summary>
         /// 异步提交，返回影响的行数
         /// </summary>
-        /// <returns></returns>
         public async Task<int> CommitAsync()
         {
             try
