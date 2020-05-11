@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Bing.Logs.Aspects;
 using Bing.Samples.Domain.Events;
 
 namespace Bing.Samples.EventHandlers.Abstractions
@@ -18,6 +19,7 @@ namespace Bing.Samples.EventHandlers.Abstractions
         /// 写入日志
         /// </summary>
         /// <param name="message">消息</param>
+        [ErrorLog]
         Task WriteLogAsync(LogMessage message);
     }
 }

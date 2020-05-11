@@ -1,9 +1,11 @@
-﻿namespace Microsoft.AspNetCore.Builder
+﻿using Bing.AspNetCore.Tracing;
+
+namespace Microsoft.AspNetCore.Builder
 {
     /// <summary>
     /// 应用程序构建器(<see cref="IApplicationBuilder"/>) 扩展
     /// </summary>
-    public static class ApplicationBuilderExtensions
+    public static class BingApplicationBuilderExtensions
     {
         /// <summary>
         /// 添加MVC并支持Area路由
@@ -19,5 +21,12 @@
                 builder.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+        /// <summary>
+        /// 应用 跟踪ID中间件
+        /// </summary>
+        /// <param name="app"></param>
+        /// <returns></returns>
+        public static IApplicationBuilder UseCorrelationId(this IApplicationBuilder app) => app.UseMiddleware<BingCorrelationIdMiddleware>();
     }
 }

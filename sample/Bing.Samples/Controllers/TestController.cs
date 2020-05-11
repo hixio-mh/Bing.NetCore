@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Bing.Dependency;
+using Bing.AspNetCore.Controllers;
 using Bing.Samples.Service.Abstractions;
 using Bing.Samples.Service.Requests;
-using Bing.Webs.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing.Samples.Controllers
 {
     /// <summary>
     /// 测试 控制器
     /// </summary>
-    public class TestController : ApiControllerBase
+    public class TestController : WebApiControllerBase
     {
         /// <summary>
         /// 初始化一个<see cref="TestController"/>类型的实例

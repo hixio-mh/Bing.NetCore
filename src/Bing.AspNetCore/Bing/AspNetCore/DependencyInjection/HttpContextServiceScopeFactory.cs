@@ -3,7 +3,7 @@ using Bing.Dependency;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Bing.AspNetCore
+namespace Bing.AspNetCore.DependencyInjection
 {
     /// <summary>
     /// 基于当前HttpContext的<see cref="IServiceScope"/>工厂。如果当前操作处于HttpRequest作用域中，直接使用HttpRequest的作用域，否则创建新的作用域

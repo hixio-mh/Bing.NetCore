@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using Bing.Dependency;
 using Bing.Events;
+using Bing.Exceptions;
+using Bing.Logs.Aspects;
 using Bing.Logs.Extensions;
 using Bing.Samples.Data;
 using Bing.Samples.Domain.Events;
@@ -72,13 +74,29 @@ namespace Bing.Samples.EventHandlers.Implements
         /// 写入日志
         /// </summary>
         /// <param name="message">消息</param>
+        [ErrorLog]
         [EventHandler("WriteLog")]
-        public Task WriteLogAsync(LogMessage message)
+        public virtual Task WriteLogAsync(LogMessage message)
         {
-            Log.Caption("写入日志消息")
+            Log.Caption($"写入日志消息{nameof(WriteLogAsync)}")
                 .Content(message.Content)
                 .AddExtraProperty("Test", message.Content)
-                .Debug();
+                .Info();
+            throw new Warning("ttt");
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 写入日志
+        /// </summary>
+        /// <param name="message">消息</param>
+        [EventHandler("WriteLog")]
+        public Task WriteLogWith2Async(LogMessage message)
+        {
+            Log.Caption($"写入日志消息 {nameof(WriteLogWith2Async)}")
+                .Content(message.Content)
+                .AddExtraProperty("Test", message.Content)
+                .Info();
             return Task.CompletedTask;
         }
 
@@ -89,9 +107,9 @@ namespace Bing.Samples.EventHandlers.Implements
         [EventHandler("WriteLog", Group = "group1.log")]
         public Task WriteLogByGroup1Async(LogMessage message)
         {
-            Log.Caption("写入日志消息 group1.log")
+            Log.Caption($"写入日志消息 {nameof(WriteLogByGroup1Async)}")
                 .Content(message.Content)
-                .Debug();
+                .Info();
             return Task.CompletedTask;
         }
 

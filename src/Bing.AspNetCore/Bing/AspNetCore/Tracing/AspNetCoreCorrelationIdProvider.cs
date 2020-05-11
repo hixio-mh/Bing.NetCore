@@ -55,7 +55,6 @@ namespace Bing.AspNetCore.Tracing
                     }
                 }
             }
-
             return correlationId;
         }
 

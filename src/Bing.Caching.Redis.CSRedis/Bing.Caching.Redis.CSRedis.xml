@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bing.Caching.Redis.CSRedis</name>
+    </assembly>
+    <members>
+        <member name="T:Bing.Caching.CSRedisCacheManager">
+            <summary>
+            CSRedis 缓存管理 - 异步操作
+            </summary>
+            <summary>
+            CSRedis 缓存管理
+            </summary>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.ExistsAsync(System.String)">
+            <summary>
+            是否存在指定键的缓存
+            </summary>
+            <param name="key">缓存键</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.GetAsync``1(System.String,System.Func{System.Threading.Tasks.Task{``0}},System.Nullable{System.TimeSpan})">
+            <summary>
+            从缓存中获取数据，如果不存在，则执行获取数据操作并添加到缓存中
+            </summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">缓存键</param>
+            <param name="func">获取数据操作</param>
+            <param name="expiration">过期时间间隔</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.GetAsync(System.String,System.Type)">
+            <summary>
+            从缓存中获取数据
+            </summary>
+            <param name="key">缓存键</param>
+            <param name="type">缓存数据类型</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="bytes">字节数组</param>
+            <param name="type">类型</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.GetAsync``1(System.String)">
+            <summary>
+            从缓存中获取数据
+            </summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">缓存键</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.TryAddAsync``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>当缓存数据不存在则添加，已存在不会添加，添加成功返回true</summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">缓存键</param>
+            <param name="value">值</param>
+            <param name="expiration">过期时间间隔</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.AddAsync``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>添加缓存。如果已存在缓存，将覆盖</summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">缓存键</param>
+            <param name="value">值</param>
+            <param name="expiration">过期时间间隔</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.RemoveAsync(System.String)">
+            <summary>移除缓存</summary>
+            <param name="key">缓存键</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.RemoveByPrefixAsync(System.String)">
+            <summary>通过缓存键前缀移除缓存</summary>
+            <param name="prefix">缓存键前缀</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.ClearAsync">
+            <summary>
+            清空缓存
+            </summary>
+        </member>
+        <member name="F:Bing.Caching.CSRedisCacheManager._serializer">
+            <summary>
+            Json序列化器
+            </summary>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.#ctor">
+            <summary>
+            初始化一个<see cref="T:Bing.Caching.CSRedisCacheManager"/>类型的实例
+            </summary>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.Exists(System.String)">
+            <summary>
+            是否存在指定键的缓存
+            </summary>
+            <param name="key">缓存键</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.Get``1(System.String,System.Func{``0},System.Nullable{System.TimeSpan})">
+            <summary>
+            从缓存中获取数据，如果不存在，则执行获取数据操作并添加到缓存中
+            </summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">缓存键</param>
+            <param name="func">获取数据操作</param>
+            <param name="expiration">过期时间间隔</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.Get``1(System.String)">
+            <summary>
+            从缓存中获取数据
+            </summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">缓存键</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.TryAdd``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            当缓存数据不存在则添加，已存在不会添加，添加成功返回true
+            </summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">缓存键</param>
+            <param name="value">值</param>
+            <param name="expiration">过期时间间隔</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.Add``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            添加缓存。如果已存在缓存，将覆盖
+            </summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">缓存键</param>
+            <param name="value">值</param>
+            <param name="expiration">过期时间间隔</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.Remove(System.String)">
+            <summary>
+            移除缓存
+            </summary>
+            <param name="key">缓存键</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.RemoveByPrefix(System.String)">
+            <summary>
+            通过缓存键前缀移除缓存
+            </summary>
+            <param name="prefix">缓存键前缀</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.HandlePrefix(System.String)">
+            <summary>
+            处理缓存键前缀
+            </summary>
+            <param name="prefix">前缀</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.SearchRedisKeys(System.String)">
+            <summary>
+            查询Redis缓存键
+            </summary>
+            <param name="pattern">查询模式</param>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.Clear">
+            <summary>
+            清空缓存
+            </summary>
+        </member>
+        <member name="M:Bing.Caching.CSRedisCacheManager.GetExpiration(System.Nullable{System.TimeSpan})">
+            <summary>
+            获取过期时间间隔
+            </summary>
+            <param name="expiration">过期时间间隔</param>
+        </member>
+    </members>
+</doc>

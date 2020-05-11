@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Bing.Extensions;
 using Bing.Helpers;
 using Bing.Tests;
+using Bing.Tests.Samples;
 using Bing.Utils.IdGenerators.Core;
 using Bing.Utils.IO;
 using Bing.Utils.Json;
@@ -541,6 +542,19 @@ Where `a`.`IsDeny`=1 And `b`.`ApplicationId`='79c3c002-1474-4b3f-bf83-b17aa173a2
             Assert.Equal(default, item);
         }
 
+        [Fact]
+        public void Test_Output_Enum_Name()
+        {
+            Output.WriteLine(EnumSample.A.ToString());
+        }
+
+        [Fact]
+        public void Test_Substring()
+        {
+            var code = "CG20191216000006";
+            var result = code.Substring(0, 2);
+            Output.WriteLine(result);
+        }
     }
 
     public class BingLogModel

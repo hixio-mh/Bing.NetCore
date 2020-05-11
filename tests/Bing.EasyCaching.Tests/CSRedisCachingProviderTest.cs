@@ -4,6 +4,7 @@ using Bing.Caching;
 using Bing.Tests;
 using Bing.Tests.Samples;
 using Bing.Utils.Json;
+using CSRedis;
 using EasyCaching.Core;
 using EasyCaching.CSRedis;
 using EasyCaching.Serialization.Json;
@@ -56,14 +57,14 @@ namespace Bing.EasyCaching.Tests
                         {
                             ConnectionStrings = new List<string>()
                             {
-                                "192.168.0.12:6379,defaultDatabase=0,poolsize=1"
+                                "127.0.0.1:6379,defaultDatabase=0,poolsize=1"
                             }
                         };
                         config.SerializerName = "json";
                     })
                     .WithJson("json");
             });
-
+            RedisHelper.Initialization(new CSRedisClient("127.0.0.1:6379,defaultDatabase=0,poolsize=1"));
             _serviceProvider = services.BuildServiceProvider();
             _cache = _serviceProvider.GetService<ICache>();
             _redisCachingProvider = _serviceProvider.GetService<IRedisCachingProvider>();
@@ -136,7 +137,10 @@ namespace Bing.EasyCaching.Tests
                 result = _redisCachingProvider.StringGet(key)?.ToObject<Sample3Copy>();
             }
             Output.WriteLine(result?.ToJson());
+            var csRedisResult = RedisHelper.Get<Sample3Copy>("key:get_or_add_other_redis");
+            Output.WriteLine(csRedisResult?.ToJson());
             Assert.Equal("隔壁老王", result?.StringValue);
+            Assert.Equal("隔壁老王",csRedisResult?.StringValue);
         }
     }
 }

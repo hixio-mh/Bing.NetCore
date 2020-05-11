@@ -8,7 +8,7 @@ namespace Bing.AspNetCore.Tracing
     /// <summary>
     /// 跟踪关联ID提供程序
     /// </summary>
-    public class CorrelationIdMiddleware
+    public class BingCorrelationIdMiddleware : IMiddleware
     {
         /// <summary>
         /// 方法
@@ -26,12 +26,14 @@ namespace Bing.AspNetCore.Tracing
         private readonly ICorrelationIdProvider _correlationIdProvider;
 
         /// <summary>
-        /// 初始化一个<see cref="CorrelationIdMiddleware"/>类型的实例
+        /// 初始化一个<see cref="BingCorrelationIdMiddleware"/>类型的实例
         /// </summary>
         /// <param name="next">方法</param>
         /// <param name="options">跟踪关联ID配置选项信息</param>
         /// <param name="correlationIdProvider">跟踪关联ID提供程序</param>
-        public CorrelationIdMiddleware(RequestDelegate next, IOptions<CorrelationIdOptions> options, ICorrelationIdProvider correlationIdProvider)
+        public BingCorrelationIdMiddleware(RequestDelegate next
+            , IOptions<CorrelationIdOptions> options
+            , ICorrelationIdProvider correlationIdProvider)
         {
             _next = next;
             _options = options.Value;
@@ -39,9 +41,10 @@ namespace Bing.AspNetCore.Tracing
         }
 
         /// <summary>
-        /// 执行方法
+        /// 执行中间件拦截逻辑
         /// </summary>
-        public async Task Invoke(HttpContext context)
+        /// <param name="context">Http上下文</param>
+        public async Task InvokeAsync(HttpContext context)
         {
             var correlationId = _correlationIdProvider.Get();
             try
@@ -60,8 +63,7 @@ namespace Bing.AspNetCore.Tracing
         /// <param name="httpContext">Http上下文</param>
         /// <param name="options">跟踪关联ID配置选项信息</param>
         /// <param name="correlationId">跟踪关联ID</param>
-        protected virtual void CheckAndSetCorrelationIdOnResponse(HttpContext httpContext, CorrelationIdOptions options,
-            string correlationId)
+        protected virtual void CheckAndSetCorrelationIdOnResponse(HttpContext httpContext, CorrelationIdOptions options, string correlationId)
         {
             if (httpContext.Response.HasStarted)
                 return;

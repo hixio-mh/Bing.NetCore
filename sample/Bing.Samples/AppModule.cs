@@ -3,7 +3,11 @@ using Bing.AspNetCore;
 using Bing.AutoMapper;
 using Bing.Core.Modularity;
 using Bing.DependencyInjection;
+using Bing.Logs.Exceptionless;
 using Bing.Logs.NLog;
+using Bing.Samples.EventHandlers.Abstractions;
+using Bing.Samples.EventHandlers.Implements;
+using Bing.Utils.Json.Converters;
 using Bing.Webs.Extensions;
 using Bing.Webs.Filters;
 using Microsoft.AspNetCore.Builder;
@@ -40,16 +44,21 @@ namespace Bing.Samples
                 .AddJsonOptions(options =>
                 {
                     options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
+                    options.SerializerSettings.Converters.Insert(0, new TrimmingConverter());
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddControllersAsServices();
 
             // 注册日志
             services.AddNLog();
+            //services.AddExceptionless(o =>
+            //{
+            //    o.ServerUrl = "http://47.106.107.73:65000/";
+            //    o.ApiKey = "7HY6E4gRBNwC83V5kYYmkOVfz5JTF9SABfLgD6PC";
+            //});
 
             // 注册AutoMapper
             services.AddAutoMapper();
-
             // 启用AOP
             services.EnableAop();
             return services;

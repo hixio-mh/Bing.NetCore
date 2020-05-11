@@ -1,6 +1,7 @@
 ﻿using Bing.AspNetCore;
 using Bing.Core.Modularity;
 using Bing.Events.Cap;
+using Bing.Samples.EventHandlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Savorboard.CAP.InMemoryMessageQueue;
@@ -24,6 +25,7 @@ namespace Bing.Samples.Modules
         /// <param name="services">服务集合</param>
         public override IServiceCollection AddServices(IServiceCollection services)
         {
+            MessageEventStartup.Config(services);
             // 注册CAP事件总线服务
             services.AddCapEventBus(o =>
             {
