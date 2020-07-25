@@ -74,6 +74,8 @@ namespace Bing.Auditing
         /// <param name="entities">审计数据信息集合</param>
         public void AddEntities(IEnumerable<AuditEntityEntry> entities)
         {
+            if (Entities == null)
+                Entities = new List<AuditEntityEntry>();
             foreach (var entity in entities) 
                 Entities.Add(entity);
         }

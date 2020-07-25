@@ -13,6 +13,7 @@ using Bing.Datas.Sql;
 using Bing.Datas.Sql.Matedatas;
 using Bing.Datas.Transactions;
 using Bing.Datas.UnitOfWorks;
+using Bing.DependencyInjection;
 using Bing.Domains.Entities;
 using Bing.Exceptions;
 using Bing.Extensions;
@@ -23,6 +24,7 @@ using Bing.Sessions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -241,7 +243,14 @@ namespace Bing.Datas.EntityFramework.Core
         {
             try
             {
-                return SaveChanges();
+                var count= SaveChanges();
+                if (count > 0)
+                {
+                    var scopedDict = _serviceProvider.GetService<ScopedDictionary>();
+                    scopedDict.AuditOperation.AddEntities(GetAuditEntities());
+                }
+                
+                return count;
             }
             catch (DbUpdateConcurrencyException ex)
             {
@@ -260,7 +269,14 @@ namespace Bing.Datas.EntityFramework.Core
         {
             try
             {
-                return await SaveChangesAsync();
+                var entities = GetAuditEntities();
+                var count = await SaveChangesAsync();
+                if (count > 0)
+                {
+                    var scopedDict = _serviceProvider.GetService<ScopedDictionary>();
+                    scopedDict.AuditOperation.AddEntities(entities);
+                }
+                return count;
             }
             catch (DbUpdateConcurrencyException ex)
             {

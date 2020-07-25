@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using Bing.Auditing;
 using Bing.Datas.UnitOfWorks;
+using Bing.DependencyInjection;
 using Bing.Security.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Abstractions;
@@ -43,6 +44,7 @@ namespace Bing.AspNetCore.Mvc.Filters
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             var scope = context.HttpContext.RequestServices.CreateScope();
+            var dict = context.HttpContext.RequestServices.GetService<ScopedDictionary>();
             _auditStore = scope.ServiceProvider.GetRequiredService<IAuditStore>();
             if (_auditStore == null)
                 throw new ArgumentNullException(nameof(_auditStore), $"{nameof(IAuditStore)} 尚未注册");
@@ -50,6 +52,7 @@ namespace Bing.AspNetCore.Mvc.Filters
             var path = context.ActionDescriptor.GetActionPath();
             var ua = context.HttpContext.Request.Headers["User-Agent"].ToString();
             var ip = context.GetRemoteIpAddress();
+
             _auditOperationEntry = new AuditOperationEntry()
             {
                 Path = path,
@@ -69,12 +72,15 @@ namespace Bing.AspNetCore.Mvc.Filters
                 _auditOperationEntry.UserName = "Anonymous";
                 _auditOperationEntry.NickName = "匿名";
             }
+
+            dict.AuditOperation = _auditOperationEntry;
         }
 
         /// <inheritdoc />
         public override void OnResultExecuted(ResultExecutedContext context)
         {
             var currentUnitOfWorkManager = context.HttpContext.RequestServices.GetService<IUnitOfWorkManager>();
+            var dict = context.HttpContext.RequestServices.GetService<ScopedDictionary>();
             if (currentUnitOfWorkManager != null)
             {
                 var entities = new List<AuditEntityEntry>();

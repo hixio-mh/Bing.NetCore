@@ -38,6 +38,8 @@ namespace Bing.Auditing
         /// <param name="properties">操作实体属性集合</param>
         public void AddProperties(IEnumerable<AuditPropertyEntry> properties)
         {
+            if (Properties == null)
+                Properties = new List<AuditPropertyEntry>();
             foreach (var property in properties) 
                 Properties.Add(property);
         }

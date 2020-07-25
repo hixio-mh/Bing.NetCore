@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Security.Claims;
+using Bing.Auditing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing.DependencyInjection
@@ -15,6 +16,11 @@ namespace Bing.DependencyInjection
         /// 对于当前功能有效的角色集合，用于数据权限判断
         /// </summary>
         public string[] DataAuthValidRoleNames { get; set; } = new string[0];
+
+        /// <summary>
+        /// 当前操作审计
+        /// </summary>
+        public AuditOperationEntry AuditOperation { get; set; }
 
         /// <summary>
         /// 当前用户
