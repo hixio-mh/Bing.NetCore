@@ -18,8 +18,4 @@ Bing是一个.net core平台下的应用框架，旨在于提升小型团队的�
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Bing\Datas\EntityFramework\" />
-  </ItemGroup>
-
 </Project>

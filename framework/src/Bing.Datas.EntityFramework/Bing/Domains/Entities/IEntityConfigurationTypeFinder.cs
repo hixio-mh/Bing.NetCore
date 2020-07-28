@@ -1,10 +1,11 @@
-﻿namespace Bing.Domains.Entities
+﻿using Bing.Reflection;
+
+namespace Bing.Domains.Entities
 {
     /// <summary>
     /// 实体类配置类型查找器
     /// </summary>
-    public interface IEntityConfigurationTypeFinder
+    public interface IEntityConfigurationTypeFinder : ITypeFinder
     {
-
     }
 }
