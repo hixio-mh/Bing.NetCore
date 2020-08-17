@@ -83,7 +83,6 @@ namespace Bing.Data.Stores
         {
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
-            Set.Attach(entity);
             Set.Update(entity);
         }
 
@@ -96,7 +95,7 @@ namespace Bing.Data.Stores
         {
             if (entities == null)
                 throw new ArgumentNullException(nameof(entities));
-            Set.AttachRange(entities);
+            Set.UpdateRangeAsync(entities);
         }
 
         /// <summary>
@@ -208,7 +207,7 @@ namespace Bing.Data.Stores
         /// </summary>
         /// <param name="id">标识</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public virtual async Task RemoveAsync(object id, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task RemoveAsync(object id, CancellationToken cancellationToken = default)
         {
             var entity = await FindAsync(id, cancellationToken);
             Delete(entity);
@@ -219,7 +218,7 @@ namespace Bing.Data.Stores
         /// </summary>
         /// <param name="entity">实体</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public virtual async Task RemoveAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task RemoveAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             if (entity == null)
                 return;
@@ -231,7 +230,7 @@ namespace Bing.Data.Stores
         /// </summary>
         /// <param name="ids">标识集合</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public virtual async Task RemoveAsync(IEnumerable<TKey> ids, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task RemoveAsync(IEnumerable<TKey> ids, CancellationToken cancellationToken = default)
         {
             if (ids == null)
                 return;
@@ -244,7 +243,7 @@ namespace Bing.Data.Stores
         /// </summary>
         /// <param name="entities">实体集合</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public virtual async Task RemoveAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task RemoveAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
         {
             if (entities == null)
                 return;

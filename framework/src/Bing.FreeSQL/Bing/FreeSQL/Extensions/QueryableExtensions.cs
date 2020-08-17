@@ -21,7 +21,7 @@ namespace Bing.FreeSQL.Extensions
         /// <param name="pager">分页对象</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public static async Task<IQueryable<TEntity>> PageAsync<TEntity>(this IQueryable<TEntity> query, IPager pager) where TEntity:class
+        public static async Task<IQueryable<TEntity>> PageAsync<TEntity>(this IQueryable<TEntity> query, IPager pager) where TEntity : class
         {
             if (query == null)
                 throw new ArgumentNullException(nameof(query));
@@ -48,7 +48,7 @@ namespace Bing.FreeSQL.Extensions
         /// <param name="query">数据源</param>
         /// <param name="pager">分页对象</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<PagerList<TEntity>> ToPagerListAsync<TEntity>(this IQueryable<TEntity> query, IPager pager) where TEntity:class
+        public static async Task<PagerList<TEntity>> ToPagerListAsync<TEntity>(this IQueryable<TEntity> query, IPager pager) where TEntity : class
         {
             if (query == null)
                 throw new ArgumentNullException(nameof(query));
