@@ -42,7 +42,7 @@ namespace Bing.Admin.Modules
             // 添加事件总线服务
             services.AddCapEventBus(o =>
             {
-                o.UseEntityFramework<AdminUnitOfWork>();
+                //o.UseEntityFramework<AdminUnitOfWork>();
                 o.UseDashboard();
                 // 设置处理成功的数据在数据库中保存的时间（秒），为保证系统性能，数据会定期清理
                 o.SucceedMessageExpiredAfter = 24 * 3600;

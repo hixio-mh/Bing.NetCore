@@ -74,7 +74,7 @@ namespace Bing.Uow
 
         #region 构造函数
 
-        protected UnitOfWorkBase(IFreeSql orm, DbContextOptions options, IServiceProvider serviceProvider) : base(orm, options)
+        protected UnitOfWorkBase(IFreeSql orm,  IServiceProvider serviceProvider) : base(orm, null)
         {
             TraceId = Guid.NewGuid().ToString();
             Session = Bing.Sessions.Session.Instance;

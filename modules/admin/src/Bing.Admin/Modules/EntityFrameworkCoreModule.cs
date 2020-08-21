@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel;
 using Bing.Admin.Data;
 using Bing.Core.Modularity;
-using Bing.Datas.Configs;
-using Bing.Datas.Dapper;
-using Bing.Datas.EntityFramework.MySql;
-using Bing.Datas.Enums;
-using Microsoft.Extensions.Configuration;
+//using Bing.Datas.Configs;
+//using Bing.Datas.Dapper;
+//using Bing.Datas.EntityFramework.MySql;
+//using Bing.Datas.Enums;
+//using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing.Admin.Modules
@@ -33,19 +33,19 @@ namespace Bing.Admin.Modules
         /// <param name="services">服务集合</param>
         public override IServiceCollection AddServices(IServiceCollection services)
         {
-            var configuration = services.GetConfiguration();
-            var connectionStr = configuration.GetConnectionString("DefaultConnection");
-            // 注册工作单元
-            services.AddMySqlUnitOfWork<IAdminUnitOfWork, Bing.Admin.Data.UnitOfWorks.MySql.AdminUnitOfWork>(connectionStr);
-            // 注册SqlQuery
-            services.AddSqlQuery<Bing.Admin.Data.UnitOfWorks.MySql.AdminUnitOfWork, Bing.Admin.Data.UnitOfWorks.MySql.AdminUnitOfWork>(options =>
-                {
-                    options.DatabaseType = DatabaseType.MySql;
-                    options.IsClearAfterExecution = true;
-                    //options.LogLevel = DataLogLevel.Off;
-                });
-            // 注册SqlExecutor
-            services.AddSqlExecutor();
+            //var configuration = services.GetConfiguration();
+            //var connectionStr = configuration.GetConnectionString("DefaultConnection");
+            //// 注册工作单元
+            //services.AddMySqlUnitOfWork<IAdminUnitOfWork, Bing.Admin.Data.UnitOfWorks.MySql.AdminUnitOfWork>(connectionStr);
+            //// 注册SqlQuery
+            //services.AddSqlQuery<Bing.Admin.Data.UnitOfWorks.MySql.AdminUnitOfWork, Bing.Admin.Data.UnitOfWorks.MySql.AdminUnitOfWork>(options =>
+            //    {
+            //        options.DatabaseType = DatabaseType.MySql;
+            //        options.IsClearAfterExecution = true;
+            //        //options.LogLevel = DataLogLevel.Off;
+            //    });
+            //// 注册SqlExecutor
+            //services.AddSqlExecutor();
             return services;
         }
     }

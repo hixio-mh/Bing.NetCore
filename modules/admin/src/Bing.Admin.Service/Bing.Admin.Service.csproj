@@ -8,8 +8,12 @@
     <DocumentationFile>bin\Debug\netcoreapp2.2\Bing.Admin.Service.xml</DocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <ProjectReference Include="..\Bing.Admin.Data\Bing.Admin.Data.csproj" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bing.Admin.Data.FreeSQL\Bing.Admin.Data.FreeSQL.csproj" />
   </ItemGroup>
 
 </Project>
