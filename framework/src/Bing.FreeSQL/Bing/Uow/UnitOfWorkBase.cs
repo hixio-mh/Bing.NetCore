@@ -10,7 +10,6 @@ using Bing.Auditing;
 using Bing.Datas.Sql;
 using Bing.Datas.Sql.Matedatas;
 using Bing.Datas.Transactions;
-using Bing.Datas.UnitOfWorks;
 using Bing.Domains.Entities;
 using Bing.Exceptions;
 using Bing.FreeSQL;
@@ -25,7 +24,7 @@ namespace Bing.Uow
     /// <summary>
     /// 工作单元
     /// </summary>
-    public abstract class UnitOfWorkBase : DbContext, Bing.Datas.UnitOfWorks.IUnitOfWork, IDatabase, IEntityMatedata
+    public abstract class UnitOfWorkBase : DbContext, Bing.Uow.IUnitOfWork, IDatabase, IEntityMatedata
     {
         #region 字段
 

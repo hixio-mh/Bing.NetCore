@@ -2,7 +2,7 @@
 using Bing.Data.Stores;
 using Bing.Domains.Entities;
 using Bing.Domains.Repositories;
-using IUnitOfWork = Bing.Datas.UnitOfWorks.IUnitOfWork;
+using IUnitOfWork = Bing.Uow.IUnitOfWork;
 
 namespace Bing.Domain.Repositories
 {

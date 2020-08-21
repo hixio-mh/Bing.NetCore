@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Bing.Domains.Entities.Trees;
 using Bing.Domains.Repositories;
 using Bing.Extensions;
-using IUnitOfWork = Bing.Datas.UnitOfWorks.IUnitOfWork;
+using IUnitOfWork = Bing.Uow.IUnitOfWork;
 
 namespace Bing.Domain.Repositories
 {

@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Bing.Datas.Stores;
 using Bing.Domains.Entities;
-using IUnitOfWork = Bing.Datas.UnitOfWorks.IUnitOfWork;
+using IUnitOfWork = Bing.Uow.IUnitOfWork;
 
 namespace Bing.Data.Stores
 {

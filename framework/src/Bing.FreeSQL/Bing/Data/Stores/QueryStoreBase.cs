@@ -15,7 +15,7 @@ using Bing.Helpers;
 using Bing.Uow;
 using FreeSql;
 using ISqlQuery = Bing.Datas.Sql.ISqlQuery;
-using IUnitOfWork = Bing.Datas.UnitOfWorks.IUnitOfWork;
+using IUnitOfWork = Bing.Uow.IUnitOfWork;
 
 namespace Bing.Data.Stores
 {
